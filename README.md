@@ -1,73 +1,234 @@
-# React + TypeScript + Vite
+# 🍱 Food Calorie Estimation from Food Image Using CNN
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📌 Overview
 
-Currently, two official plugins are available:
+**Food Calorie Estimation from Food Image Using CNN** is a deep learning project that uses a **Convolutional Neural Network (CNN)** to identify food items from images and estimate their approximate calorie content.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The system analyzes a food image, predicts the food category, and maps the detected food item to an estimated calorie value.
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* 📷 Upload a food image
+* 🧠 CNN-based food image classification
+* 🍔 Automatic food category prediction
+* 🔥 Approximate calorie estimation
+* 📊 Simple and easy-to-use interface
+* ⚡ Fast image prediction
+* 🤖 Deep learning-based solution
 
-## Expanding the ESLint configuration
+## 🏗️ How It Works
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```text
+             Food Image
+                  |
+                  v
+          Image Preprocessing
+                  |
+                  v
+          CNN Classification
+                  |
+                  v
+         Food Item Prediction
+                  |
+                  v
+       Calorie Database Lookup
+                  |
+                  v
+       Estimated Calorie Output
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🛠️ Technologies Used
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+| Technology         | Purpose                   |
+| ------------------ | ------------------------- |
+| Python             | Programming language      |
+| TensorFlow / Keras | CNN model development     |
+| OpenCV             | Image processing          |
+| NumPy              | Numerical operations      |
+| Pandas             | Dataset/data processing   |
+| Matplotlib         | Visualization             |
+| CNN                | Food image classification |
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 🧠 CNN Model
+
+The CNN learns visual features from food images through multiple convolution and pooling layers.
+
+A typical architecture:
+
+```text
+Input Image
+     ↓
+Convolution Layer
+     ↓
+ReLU Activation
+     ↓
+Max Pooling
+     ↓
+Convolution Layer
+     ↓
+ReLU Activation
+     ↓
+Max Pooling
+     ↓
+Flatten
+     ↓
+Fully Connected Layer
+     ↓
+Softmax
+     ↓
+Food Class
 ```
+
+## 🔥 Calorie Estimation
+
+After the CNN predicts the food category, the application maps the predicted item to an approximate calorie value.
+
+Example:
+
+```text
+Input:
+      Pizza Image
+
+CNN Prediction:
+      Pizza
+
+Estimated Calories:
+      ~266 kcal / 100g
+```
+
+> **Note:** Calorie values are estimates and can vary significantly depending on portion size, ingredients, cooking method, and preparation.
+
+## 📂 Project Structure
+
+```text
+Food-Calorie-Estimation/
+│
+├── dataset/
+│   ├── train/
+│   └── test/
+│
+├── model/
+│   └── food_cnn_model.h5
+│
+├── app.py
+├── train.py
+├── predict.py
+├── requirements.txt
+└── README.md
+```
+
+## ⚙️ Installation
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/yourusername/Food-Calorie-Estimation.git
+cd Food-Calorie-Estimation
+```
+
+### 2. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+If `requirements.txt` is not available:
+
+```bash
+pip install tensorflow keras opencv-python numpy pandas matplotlib pillow
+```
+
+## 🚀 Training the Model
+
+Prepare the food image dataset and organize it into training and testing folders.
+
+Then run:
+
+```bash
+python train.py
+```
+
+The trained CNN model will be saved for future predictions.
+
+## 🔍 Making Predictions
+
+Run:
+
+```bash
+python predict.py
+```
+
+Provide a food image when prompted.
+
+Example:
+
+```text
+Enter image path:
+images/pizza.jpg
+
+Predicted Food:
+Pizza
+
+Estimated Calories:
+266 kcal / 100g
+```
+
+## 📊 Model Evaluation
+
+The model can be evaluated using:
+
+* Accuracy
+* Precision
+* Recall
+* F1-score
+* Confusion Matrix
+* Training and validation loss
+
+Example visualization:
+
+```text
+Training Accuracy
+        |
+        |              ______
+        |          ___/
+        |       __/
+        |_____/
+        +--------------------> Epochs
+```
+
+## 🎯 Applications
+
+This project can be useful for:
+
+* 🥗 Diet tracking applications
+* 🏋️ Fitness applications
+* 🍎 Nutrition monitoring
+* 📱 Food recognition apps
+* 🧑‍⚕️ Dietary analysis systems
+* 🤖 AI-based health and fitness platforms
+
+## 🔮 Future Improvements
+
+* Improve CNN accuracy with transfer learning
+* Support more food categories
+* Estimate portion size automatically
+* Calculate calories for the complete meal
+* Add protein, carbohydrates, and fat estimation
+* Develop a Streamlit web application
+* Deploy the model as a cloud API
+* Add mobile application support
+* Use object detection for multiple food items in one image
+
+## ⚠️ Disclaimer
+
+The calorie values generated by this project are **approximate estimates** and should not be considered medically accurate nutritional advice. Actual calories depend on food quantity, ingredients, preparation method, and serving size.
+
+## 👨‍💻 Author
+
+**Aryan Nasina**
+
+B.Tech — Artificial Intelligence & Data Science
+
+### ⭐ If you found this project useful
+
+Give the repository a ⭐ and feel free to contribute!
