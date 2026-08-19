@@ -1,21 +1,4 @@
-🍱 Food Calorie Estimation from Food Image Using CNN
-📌 Overview
-
-Food Calorie Estimation from Food Image Using CNN is a deep learning project that uses a Convolutional Neural Network (CNN) to identify food items from images and estimate their approximate calorie content.
-
-The system analyzes a food image, predicts the food category, and maps the detected food item to an estimated calorie value.
-
-✨ Features
-📷 Upload a food image
-🧠 CNN-based food image classification
-🍔 Automatic food category prediction
-🔥 Approximate calorie estimation
-📊 Simple and easy-to-use interface
-⚡ Fast image prediction
-🤖 Deep learning-based solution
-p align="center">
-
-  <img src="assets/banner.png" alt="NutriLens Banner" width="100%">
+ <img src="assets/banner.png" alt="NutriLens Banner" width="100%">
 
 </p>
 
