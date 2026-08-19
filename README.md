@@ -1,5 +1,3 @@
- <img src="assets/banner.png" alt="NutriLens Banner" width="100%">
-
 </p>
 
 <h1 align="center">🍽️ NutriLens — Food Calorie Estimation from Food Images Using CNN</h1>
